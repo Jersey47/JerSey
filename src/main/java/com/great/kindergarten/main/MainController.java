@@ -11,7 +11,6 @@ public class MainController {
     public String Main() {
         return "mainjsp/main";
     }
-
     @RequestMapping("/about")
     public String About() {
         return "mainjsp/about";
@@ -19,12 +18,7 @@ public class MainController {
 
     @RequestMapping("/detail")
     public String Detail() {
-        return "mainjsp/detail";
-    }
-
-    @RequestMapping("/login")
-    public String Login() {
-        return "parentjsp/userLogin";
+        return "mainjsp/details";
     }
 
 }

@@ -15,10 +15,12 @@
     <meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具"/>
     <meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图"/>
 
+    <!--引用百度地图API-->
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <!--引用百度地图API-->
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=bOF9gGWXz76q065otbYtWN4A"></script>
+
 
     <title>智慧幼儿园-首页</title>
     <%String path = request.getContextPath(); %>
@@ -33,7 +35,7 @@
             padding: 0;
         }
     </style>
-    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=bOF9gGWXz76q065otbYtWN4A"></script>
+
     <!--加载meta IE兼容文件-->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -55,14 +57,15 @@
             <img style="width: 100%;" src="${pageContext.request.contextPath}/image/logo/logo.png">
         </h1>
         <div class="nav" style="visibility: visible">
-            <a href="${pageContext.request.contextPath}/WEB-INF/mainjsp/main.jsp" class="active"
+            <a href="${pageContext.request.contextPath}/main/main" class="active"
                style="font-size: 18px">首页</a>
             <a href="" class="active" style="font-size: 18px">家长端</a>
             <a href="" class="active" style="font-size: 18px">教师端</a>
             <a href="" class="active" style="font-size: 18px">保健员端</a>
             <a href="" class="active" style="font-size: 18px">安防员端</a>
             <a href="" class="active" style="font-size: 18px">园长端</a>
-            <a href="" class="active" style="font-size: 18px">关于</a>
+            <a href="" class="active" style="font-size: 18px">平台端</a>
+            <a href="${pageContext.request.contextPath}/main/about" class="active" style="font-size: 18px">关于</a>
         </div>
     </div>
 </div>
@@ -132,7 +135,7 @@
                         <div class="text">
                             <h3>专为幼儿园量身定做</h3>
                             <p>"智慧幼儿园"帮助园长更方便的管理园所日常工作，帮助老师更快捷的进行幼儿教学工作；同时方便家长及时查看孩子在校情况，操作方便，无需专业培训就可轻松使用。</p>
-                            <a href="">查看更多 ></a>
+                            <a href="${pageContext.request.contextPath}/main/detail">查看更多 ></a>
                         </div>
                     </div>
                     <div class="layui-col-xs12 layui-col-sm12 layui-col-md8 bot-img-box" style="width: 55%">
@@ -152,15 +155,13 @@
         <div class="layui-fluid">
             <div class="layui-row">
                 <div class="layui-col-xs12 layui-col-sm6 layui-col-md7">
-                    <!--                    <div class="map-img">-->
                     <div style="width:697px;height:400px;border:#ccc solid 1px;" id="dituContent"></div>
-                    <!--                    </div>-->
                 </div>
                 <div class="layui-col-xs12 layui-col-sm5  layui-col-md4 fr">
                     <div class="cantact-info">
                         <h3>联系我们</h3>
                         <div class="item">
-                            <p><i class="layui-icon layui-icon-location"></i>地址:<span>福建省厦门市思明区软件园二期观日路56号101</span></p>
+                            <p><i class="layui-icon layui-icon-location"></i>地址:<span>福建省厦门市思明区软件园二期</span></p>
                             <p><i class="layui-icon layui-icon-dialogue"></i>电话:<span>400-000-888</span></p>
                             <p><i class="layui-icon layui-icon-layouts"></i>邮箱:<span>kindergarten@qq.com</span></p>
                         </div>

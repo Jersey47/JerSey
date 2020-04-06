@@ -1,4 +1,4 @@
-package com.great.kindergarten.parent.interceptor;
+package com.great.kindergarten.interceptor;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -7,10 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Spring MVC拦截器
+ * 拦截器实现类具体拦截方法
  */
-public class kindergartenInterceptor implements HandlerInterceptor {
-
+public class KinderGartenInterceptor implements HandlerInterceptor {
     /**
      * 该方法会在控制器方法前执行，其返回值表示是否中断后续操作。当其返回值为true时，表示继续向下执行；
      *     当其返回值为false时，会中断后续的所有操作（包括调用下一个拦截器和控制器类中的方法执行等）
@@ -22,14 +21,14 @@ public class kindergartenInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//        String uri = request.getRequestURI();//拿到拦截的页面
-//        System.out.println("uri="+uri);
-//
-//        String username = (String) request.getSession().getAttribute("username");
-//        if(!"".equals(username)){
-//            return true;
-//        }
-//        response.sendRedirect(request.getContextPath()+"/user/main");
+        String uri = request.getRequestURI();//拿到拦截的页面
+        System.out.println("uri="+uri);
+
+        String username = (String) request.getSession().getAttribute("username");
+        if(!"".equals(username)){
+            return true;
+        }
+        response.sendRedirect(request.getContextPath()+"/user/main");
 
         return false;
     }
