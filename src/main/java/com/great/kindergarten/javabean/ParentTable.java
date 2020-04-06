@@ -1,4 +1,4 @@
 package com.great.kindergarten.javabean;
 
-public class UserTable {
+public class ParentTable {
 }
