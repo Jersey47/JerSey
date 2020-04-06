@@ -5,14 +5,14 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/kindergarten?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://114.215.147.151/kindergarten?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      initial-size: 8 #初始化时建立物理连接的个数
+      initial-size: 20 #初始化时建立物理连接的个数
       min-idle: 1  #最小连接池数量
-      max-active: 20 #最大连接池数量
+      max-active: 200 #最大连接池数量
       max-wait: 60000 #获取连接时最大等待时间，单位毫秒
       time-between-eviction-runsMillis: 60000 #1) Destroy线程会检测连接的间隔时间2) testWhileIdle的判断依据
       min-evictable-idle-timeMillis: 300000 #Destory线程中如果检测到当前连接的最后活跃时间和当前时间的差值大于minEvictableIdleTimeMillis，则关闭当前连接。
@@ -40,10 +40,10 @@ spring:
   mvc:
     view:
       suffix: .jsp
-      prefix: /WEB-INF/frontjsp/
+      prefix: /WEB-INF/
 
 mybatis:
   config-location: classpath:SqlMapConfig.xml
-  mapper-locations: classpath:/mapper/*.xml
+  mapper-locations: classpath:/mapper/**.xml
 
 
