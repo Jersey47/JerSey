@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>文档管理系统-用户登录界面</title>
+    <title>智慧幼儿园-用户登录界面</title>
     <%String path = request.getContextPath(); %>
     <link rel="stylesheet" href=<%=path+"/layui/css/layui.css" %>>
     <script src=<%=path + "/layui/layui.js"%>></script>
@@ -27,7 +27,7 @@
         body {
             width: 100%;
             height: 100%;
-            background-image: url("${pageContext.request.contextPath}/image/userLogin.jpg");
+            background-image: url("${pageContext.request.contextPath}/image/loginreg/Login.jpg");
             background-size: 100% 100%;
             background-attachment: fixed;
         }
@@ -39,10 +39,10 @@
         }
 
         #hh1 {
-            color: white;
+            color: black;
             font-weight: bold;
-            font-size: 55px;
-            margin-left: 32.3%;
+            font-size: 30px;
+            margin-left: 16%;
             margin-top: 3%;
             font-family: 楷体;
         }
@@ -50,9 +50,9 @@
         .container {
             position: absolute;
             width: 28%;
-            height: 34%;
+            height: 39%;
             min-height: 33%;
-            max-height: 33%;
+            max-height: 50%;
             top: 0;
             left: 0;
             bottom: 0;
@@ -122,7 +122,7 @@
             background-color: transparent;
             margin-left: 47%;
             width: 35%;
-            height: 14.2%;
+            height: 12.5%;
         }
 
         #code {
@@ -154,12 +154,12 @@
 
 </head>
 <body>
-<form class="layui-form" action="${pageContext.request.contextPath}/user/userLogin" method="post">
+<form class="layui-form" method="post">
     <input type="hidden" id="path" value="<%=path%>">
     <div id="alldiv">
-        <h1 id="hh1">文档管理系统用户登录界面</h1>
-        <hr style="color: white">
         <div class="container">
+            <h1 id="hh1">智慧幼儿园用户登录界面</h1>
+            <hr style="color: white">
             <div class="layui-form-item">
                 <label class="layui-form-label">用户名</label>
                 <div class="layui-input-block">
@@ -186,7 +186,7 @@
                 </div>
 
                 <div id="codediv">
-                    <img src="${pageContext.request.contextPath}/user/loginCode" id="code">
+                    <img src="${pageContext.request.contextPath}/parent/loginCode" id="code">
                     <input type="button" id="bu1" value="看不清？换一张"></td>
                 </div>
             </div>
@@ -239,7 +239,7 @@
         form.on('submit(formDemo)', function (data) {
             var path = $("#path").val();
             $.ajax({
-                url: path + "/user/userLogin",
+                url: path + "/parent/parentLogin",
                 async: true,
                 type: "post",
                 data: data.field,
@@ -247,7 +247,7 @@
                 success: function (msg) {
                     if (msg == "success") {
                         layer.alert("登录成功！", {icon: 6}, function () {
-                            location.href = path + "/user/main";
+                            location.href = path + "/parent/parentMain";
                         });
                     } else if(msg == "error"){
                         layer.alert("登录失败！", {icon: 2}, function () {
@@ -270,18 +270,18 @@
             $("#code").click(function () {
                 var path = $("#path").val();
                 var code = document.getElementById("code");
-                code.src = path + "/user/loginCode?"+Math.random();
+                code.src = path + "/parent/loginCode?"+Math.random();
 
             }),$("#bu1").click(function () {
                 var path = $("#path").val();
                 var code = document.getElementById("code");
-                code.src = path + "/user/loginCode?"+Math.random();
+                code.src = path + "/parent/loginCode?"+Math.random();
 
             }),$("#bu3").click(function () {
                 layer.alert("该功能尚未开放！", {icon: 6});
             }),$("#bu4").click(function () {
                 var path = $("#path").val();
-                location.href = path + "/user/reg";
+                location.href = path + "/parent/parentReg";
             });
         })
     });
